@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+
 import { Link } from 'react-router-dom';
 import './Header.css'
 
@@ -31,10 +31,15 @@ const Header = () => {
 
 
                         </Nav>
-                        <Form className="d-flex">
+                        <Form className="d-flex  gy-2 ml-5">
 
-                            <Button variant="outline-success">Log In </Button>
-                            <Button variant="outline-success">Register</Button>
+                            <Button className='gx-2' variant="outline-success">
+                                <Link to='/login'>Log In</Link>
+                            </Button>
+                            <Button variant="outline-success">
+
+                                <Link to='/register'>Register</Link>
+                            </Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>
