@@ -31,12 +31,12 @@ const Header = () => {
 
 
                         </Nav>
-                        <Form className="d-flex  gy-2 ml-5">
+                        <Form className="d-flex  m-2">
 
-                            <Button className='gx-2' variant="outline-success">
+                            <Button className='gx-2 m-2' variant="outline-success">
                                 <Link to='/login'>Log In</Link>
                             </Button>
-                            <Button variant="outline-success">
+                            <Button className='gx-2 m-2' variant="outline-success">
 
                                 <Link to='/register'>Register</Link>
                             </Button>

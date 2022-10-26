@@ -9,8 +9,8 @@ const LeftSideNav = () => {
             .then(data => setCategories(data));
     }, [])
     return (
-        <div className='mt-5'>
-            <h4>All Category: {courseCategories.length}</h4>
+        <div className='mt-5 bg-dark p-5 '>
+            <h4 className='text-light text-center p-2 mb-3'>All Category: {courseCategories.length}</h4>
             <div>
                 {
                     courseCategories.map(category => <p key={category.id}>
