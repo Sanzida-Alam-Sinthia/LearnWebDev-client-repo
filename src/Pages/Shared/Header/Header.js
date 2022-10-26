@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 import { Link } from 'react-router-dom';
 import ToggleTheme from '../ToggleTheme/ToggleTheme';
-import { BsToggleOn } from 'react-icons/fa';
+import { BsToggleOn } from 'react-icons/bs';
 import './Header.css'
 
 

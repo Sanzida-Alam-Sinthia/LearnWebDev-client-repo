@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import './ToggleTheme.css';
-import { BsToggleOn } from 'react-icons/fa';
+
 
 const ToggleTheme = () => {
   const [theme, setTheme] = useState('light');
