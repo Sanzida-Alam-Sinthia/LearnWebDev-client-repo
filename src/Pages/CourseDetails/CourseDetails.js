@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import './CourseDetails.css';
 import Pdf from "react-to-pdf";
 const CourseDetails = ({ coursedetails }) => {
@@ -23,7 +23,9 @@ const CourseDetails = ({ coursedetails }) => {
             </div>
             <div className='d-flex justify-content-between mt-5 '>
 
-                <button className='btn btn-primary'>Get Premium Access</button>
+                <button className='btn btn-primary'>
+                    <Link to={`/checkout/${courseInfo.id}`}>Get Premium Access</Link>
+                </button>
                 <Pdf targetRef={ref} filename="code-example.pdf">
                     {({ toPdf }) => <button className='btn btn-primary' onClick={toPdf}>Want to Download? Click Here! </button>}
                 </Pdf>
