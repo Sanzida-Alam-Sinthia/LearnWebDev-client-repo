@@ -6,6 +6,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 import { Link } from 'react-router-dom';
+import ToggleTheme from '../ToggleTheme/ToggleTheme';
+import { BsToggleOn } from 'react-icons/fa';
 import './Header.css'
 
 
@@ -40,6 +42,10 @@ const Header = () => {
 
                                 <Link to='/register'>Register</Link>
                             </Button>
+                            <ToggleTheme>
+                                < BsToggleOn>
+                                </BsToggleOn>
+                            </ToggleTheme>
                         </Form>
                     </Navbar.Collapse>
                 </Container>
