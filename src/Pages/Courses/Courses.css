@@ -3,3 +3,8 @@ card-img {
     background-color: black;
     margin-bottom: 20px;
 }
+
+.cards {
+    width: 350px;
+    margin-left: 10px;
+}

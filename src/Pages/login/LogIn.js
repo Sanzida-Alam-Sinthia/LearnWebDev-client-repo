@@ -69,7 +69,7 @@ const LogIn = () => {
     }
 
     return (
-        <div className='mt-5 p-5 border border-primary '>
+        <div className='m-5 p-5 border border-primary '>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>

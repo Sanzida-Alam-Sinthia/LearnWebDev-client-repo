@@ -11,17 +11,17 @@ const CourseDetails = ({ coursedetails }) => {
     return (
         <div>
             <div ref={ref}>
-                <h2 className='mt-5 text-primary fs-1 fw-bolder'>{courseInfo.name}</h2>
-                <div className='details-image mt-4'>
+                <h2 className='m-5 text-primary fs-1 fw-bolder'>{courseInfo.name}</h2>
+                <div className='details-image m-4'>
                     <img src={courseInfo.logo} className="img-fluid" alt="..." />
                 </div>
-                <div className='text-bg-dark p-3 mt-4'>
+                <div className='text-bg-dark fs-3 p-3 m-5'>
                     {courseInfo.description}
 
 
                 </div>
             </div>
-            <div className='d-flex justify-content-between mt-5 '>
+            <div className='d-flex justify-content-around m-5 '>
 
                 <button className='btn btn-primary'>
                     <Link to={`/checkout/${courseInfo.id}`}>Get Premium Access</Link>
