@@ -4,6 +4,8 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Image } from 'react-bootstrap';
+import { FaUser } from 'react-icons/fa';
 
 import { Link } from 'react-router-dom';
 import ToggleTheme from '../ToggleTheme/ToggleTheme';
@@ -48,7 +50,15 @@ const Header = () => {
                                 {
                                     user?.uid ?
                                         <>
-                                            <span className='text-light fw-semibold m-2'>{user?.displayName}</span>
+                                            {user?.photoURL ?
+                                                <Image
+                                                    style={{ height: '40px' }}
+                                                    roundedCircle
+                                                    src={user?.photoURL}>
+                                                </Image>
+                                                : <FaUser></FaUser>
+                                            }
+                                            <span className='text-light fw-semibold fs-5 m-2'>{user?.displayName}</span>
                                             <Button className='btn btn-primary m-2' onClick={handleLogOut}>Log out</Button>
                                         </>
                                         :
