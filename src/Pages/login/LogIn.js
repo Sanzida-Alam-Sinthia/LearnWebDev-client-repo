@@ -5,11 +5,14 @@ import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 
 const LogIn = () => {
-    const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
     const { providerLogin } = useContext(AuthContext);
+
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
@@ -17,6 +20,18 @@ const LogIn = () => {
                 console.log(user);
             })
             .catch(error => console.error(error))
+    }
+
+    const handleGithubSignIn = () => {
+        providerLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
+
+                console.log(user);
+            })
+            .catch(error => {
+                console.error('error: ', error)
+            })
     }
     const [error, setError] = useState('');
     const { signIn, setLoading } = useContext(AuthContext);
@@ -67,10 +82,12 @@ const LogIn = () => {
                     <Form.Control name="password" type="password" placeholder="Password" required />
                 </Form.Group>
 
-                <Button className='ms-2' variant="primary" type="submit">
+                <Button className='ms-2 m-2' variant="primary" type="submit">
                     Login
                 </Button>
-                <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-primary">  Login with Google</Button>
+                <Button onClick={handleGoogleSignIn} className='m-2' variant="primary">  Login with Google</Button>
+                <Button onClick={handleGithubSignIn} className='m-2' variant="primary">  Login with GitHub</Button>
+
                 <Form.Text className="text-danger">
                     {error}
                 </Form.Text>
