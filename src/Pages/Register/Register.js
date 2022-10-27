@@ -47,19 +47,15 @@ const Register = () => {
             .catch(error => console.error(error));
     }
 
-    // const handleEmailVerification = () => {
-    //     verifyEmail()
-    //         .then(() => { })
-    //         .catch(error => console.error(error));
-    // }
+
 
     const handleAccepted = event => {
         setAccepted(event.target.checked)
     }
     return (
-        <Form onSubmit={handleSubmit} className='mt-5 border border-dark p-5'>
+        <Form onSubmit={handleSubmit} className='m-5 border border-dark p-5'>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Your Name</Form.Label>
+                <Form.Label>Your Full Name</Form.Label>
                 <Form.Control name="name" type="text" placeholder="Your Name" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -83,7 +79,7 @@ const Register = () => {
                     label={<>Accept <Link to="/terms">Terms and conditions</Link></>} />
             </Form.Group>
             <Button variant="primary" type="submit" disabled={!accepted}>
-                Register
+                Register User
             </Button>
             <Form.Text className="text-danger">
                 {error}

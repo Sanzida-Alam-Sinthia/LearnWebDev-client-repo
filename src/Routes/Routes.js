@@ -24,7 +24,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <PrivateRoute> <Courses></Courses></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://learning-plateform-assignment-server-side.vercel.app/courses')
 
             },
             {
@@ -46,13 +46,13 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://learning-plateform-assignment-server-side.vercel.app/courses/${params.id}`)
 
             },
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute> <CheckOut></CheckOut></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://learning-plateform-assignment-server-side.vercel.app/courses/${params.id}`)
 
             },
             {

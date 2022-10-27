@@ -52,12 +52,12 @@ const LogIn = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                // if (user.emailVerified) {
-                //     navigate(from, { replace: true });
-                // }
-                // else {
-                //     toast.error('Your email is not verified. Please verify your email address.')
-                // }
+                if (user) {
+                    navigate(from, { replace: true });
+                }
+                else {
+                    toast.error('Your are not verified. Please verify your email address.')
+                }
             })
             .catch(error => {
                 console.error(error)
