@@ -1,6 +1,6 @@
 Learn WebDev.com App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). \
+This project was bootstrapped with [Create React App]. Live-Site Link: https://learnng-platform-assignment.web.app \
 It is a e-learning website based project. \
 The features are : 
 \
