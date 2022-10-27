@@ -11,7 +11,8 @@ const LogIn = () => {
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
-    const { providerLogin } = useContext(AuthContext);
+    const { setUser, providerLogin } = useContext(AuthContext);
+
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
@@ -49,15 +50,16 @@ const LogIn = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 form.reset();
+                setUser(user)
                 setError('');
-                if (user) {
-                    navigate(from, { replace: true });
-                }
-                else {
-                    toast.error('Your are not verified. Please verify your email address.')
-                }
+                // if (user) {
+                //     navigate(from, { replace: true });
+                // }
+                // else {
+                //     toast.error('Your are not verified. Please verify your email address.')
+                // }
             })
             .catch(error => {
                 console.error(error)

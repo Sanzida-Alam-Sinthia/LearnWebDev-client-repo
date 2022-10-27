@@ -9,7 +9,7 @@ import './Register.css'
 const Register = () => {
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
-    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -28,7 +28,7 @@ const Register = () => {
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
 
-                // toast.success('Please verify your email address.')
+
             })
             .catch(e => {
                 console.error(e);
@@ -60,7 +60,7 @@ const Register = () => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Photo URL</Form.Label>
-                <Form.Control name="photoURL" type="text" placeholder="Phot URL" />
+                <Form.Control name="photoURL" type="text" placeholder="Photo URL" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
