@@ -18,7 +18,7 @@ const ToggleTheme = () => {
 
   return (
     <div>
-      <button className='btn btn-primary' onClick={toggleThemes}>
+      <button className='btn btn-primary m-2' onClick={toggleThemes}>
         Toggle Theme
       </button>
 

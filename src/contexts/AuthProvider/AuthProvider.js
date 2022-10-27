@@ -28,9 +28,9 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, profile);
     }
 
-    const verifyEmail = () => {
-        return sendEmailVerification(auth.currentUser);
-    }
+    // const verifyEmail = () => {
+    //     return sendEmailVerification(auth.currentUser);
+    // }
 
     const logOut = () => {
         setLoading(true);
@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
         providerLogin,
         logOut,
         updateUserProfile,
-        verifyEmail,
+
         createUser,
         signIn
     };

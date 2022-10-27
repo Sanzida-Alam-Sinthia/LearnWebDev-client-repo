@@ -9,9 +9,19 @@ import { Link } from 'react-router-dom';
 import ToggleTheme from '../ToggleTheme/ToggleTheme';
 import { BsToggleOn } from 'react-icons/bs';
 import './Header.css'
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     return (
 
         <div>
@@ -34,14 +44,29 @@ const Header = () => {
 
                         </Nav>
                         <Form className="d-flex  m-2">
+                            <>
+                                {
+                                    user?.uid ?
+                                        <>
+                                            <span className='text-light fw-semibold m-2'>{user?.displayName}</span>
+                                            <Button className='btn btn-primary m-2' onClick={handleLogOut}>Log out</Button>
+                                        </>
+                                        :
+                                        <>
+                                            <Button className='gx-2 m-2' variant="outline-success">
+                                                <Link to='/login'>Log In</Link>
+                                            </Button>
+                                            <Button className='gx-2 m-2' variant="outline-success">
 
-                            <Button className='gx-2 m-2' variant="outline-success">
-                                <Link to='/login'>Log In</Link>
-                            </Button>
-                            <Button className='gx-2 m-2' variant="outline-success">
+                                                <Link to='/register'>Register</Link>
+                                            </Button>
+                                        </>
+                                }
 
-                                <Link to='/register'>Register</Link>
-                            </Button>
+
+                            </>
+
+
                             <ToggleTheme>
                                 < BsToggleOn>
                                 </BsToggleOn>
