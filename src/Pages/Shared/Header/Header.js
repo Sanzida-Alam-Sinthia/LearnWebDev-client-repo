@@ -42,7 +42,10 @@ const Header = () => {
                             <Nav.Link> <Link to='/courses'>Courses</Link></Nav.Link>
                             <Nav.Link > <Link to='/blogs'>Blogs</Link></Nav.Link>
                             <Nav.Link> <Link to='/faqs'>FAQ</Link></Nav.Link>
-
+                            <ToggleTheme>
+                                < BsToggleOn>
+                                </BsToggleOn>
+                            </ToggleTheme>
 
                         </Nav>
                         <Form className="d-flex  m-2">
@@ -73,14 +76,14 @@ const Header = () => {
                                         </>
                                 }
 
-
+                                {/* <ToggleTheme>
+                                    < BsToggleOn>
+                                    </BsToggleOn>
+                                </ToggleTheme> */}
                             </>
 
 
-                            <ToggleTheme>
-                                < BsToggleOn>
-                                </BsToggleOn>
-                            </ToggleTheme>
+
                         </Form>
                     </Navbar.Collapse>
                 </Container>

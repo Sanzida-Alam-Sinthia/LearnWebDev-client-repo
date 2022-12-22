@@ -23,7 +23,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <PrivateRoute> <Courses></Courses></PrivateRoute>,
+                element: <Courses></Courses>,
                 loader: () => fetch('https://learning-plateform-assignment-server-side.vercel.app/courses')
 
             },
@@ -45,7 +45,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses/:id',
-                element: <CourseDetails></CourseDetails>,
+                element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://learning-plateform-assignment-server-side.vercel.app/courses/${params.id}`)
 
             },

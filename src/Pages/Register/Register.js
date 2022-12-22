@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import './Register.css'
 
@@ -10,7 +10,10 @@ const Register = () => {
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
     const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
+    const from = location.state?.from?.pathname || '/';
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -27,7 +30,12 @@ const Register = () => {
                 setError('');
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
-
+                if (user) {
+                    navigate(from, { replace: true });
+                }
+                else {
+                    toast.error('Your are not verified. Please verify your email address.')
+                }
 
             })
             .catch(e => {
@@ -53,7 +61,7 @@ const Register = () => {
         setAccepted(event.target.checked)
     }
     return (
-        <Form onSubmit={handleSubmit} className='m-5 border border-dark p-5'>
+        <Form onSubmit={handleSubmit} className='m-5 p-5 bg-secondary bg-gradient bg-opacity-10'>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Your Full Name</Form.Label>
                 <Form.Control name="name" type="text" placeholder="Your Name" />
@@ -76,7 +84,7 @@ const Register = () => {
                 <Form.Check
                     type="checkbox"
                     onClick={handleAccepted}
-                    label={<>Accept <Link to="/terms">Terms and conditions</Link></>} />
+                    label={<>Accept <Link to="/terms"><span className='text-primary fw-bold'>Terms and conditions</span></Link></>} />
             </Form.Group>
             <Button variant="primary" type="submit" disabled={!accepted}>
                 Register User

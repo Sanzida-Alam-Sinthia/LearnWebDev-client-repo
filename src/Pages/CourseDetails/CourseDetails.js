@@ -9,13 +9,13 @@ const CourseDetails = ({ coursedetails }) => {
     const ref = React.createRef();
     const { id, name, logo, description, total } = courseInfo;
     return (
-        <div>
+        <div className='m-5 p-1'>
             <div ref={ref}>
                 <h2 className='m-5 text-primary fs-1 fw-bolder'>{courseInfo.name}</h2>
                 <div className='details-image m-4'>
                     <img src={courseInfo.logo} className="img-fluid" alt="..." />
                 </div>
-                <div className='text-bg-dark fs-3 p-3 m-5'>
+                <div className='text-bg-dark fs-4 p-4'>
                     {courseInfo.description}
 
 

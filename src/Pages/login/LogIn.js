@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 
@@ -54,12 +54,12 @@ const LogIn = () => {
                 form.reset();
                 setUser(user)
                 setError('');
-                // if (user) {
-                //     navigate(from, { replace: true });
-                // }
-                // else {
-                //     toast.error('Your are not verified. Please verify your email address.')
-                // }
+                if (user) {
+                    navigate(from, { replace: true });
+                }
+                else {
+                    toast.error('Your are not verified. Please verify your email address.')
+                }
             })
             .catch(error => {
                 console.error(error)
@@ -71,7 +71,7 @@ const LogIn = () => {
     }
 
     return (
-        <div className='m-5 p-5 border border-primary '>
+        <div className='m-5 p-5 bg-secondary bg-gradient bg-opacity-10 '>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -94,6 +94,7 @@ const LogIn = () => {
                     {error}
                 </Form.Text>
             </Form>
+            <p className='mt-3'>New Here? Create an accout <Link to='/register'><span className='text-primary fw-bold'>Sign Up</span></Link></p>
         </div>
     );
 };
