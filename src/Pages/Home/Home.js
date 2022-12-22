@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Banner from './Banner/Banner';
+import Whatweoffer from './Whatweoffer/Whatweoffer';
 
 const Home = () => {
     return (
@@ -43,7 +44,10 @@ const Home = () => {
         //         </Carousel.Caption>
         //     </Carousel.Item>
         // </Carousel>
-        <Banner></Banner>
+        <div>
+            <Banner></Banner>
+            <Whatweoffer></Whatweoffer>
+        </div>
     );
 };
 
