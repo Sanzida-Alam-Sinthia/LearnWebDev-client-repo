@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <RouterProvider router={routes}></RouterProvider>
       <Toaster></Toaster>
-      <Footer></Footer>
+
 
     </div>
   );

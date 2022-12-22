@@ -19,6 +19,12 @@ const LogIn = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                if (user) {
+                    navigate(from, { replace: true });
+                }
+                else {
+                    toast.error('Your are not verified. Please verify your email address.')
+                }
             })
             .catch(error => console.error(error))
     }
@@ -29,6 +35,12 @@ const LogIn = () => {
                 const user = result.user;
 
                 console.log(user);
+                if (user) {
+                    navigate(from, { replace: true });
+                }
+                else {
+                    toast.error('Your are not verified. Please verify your email address.')
+                }
             })
             .catch(error => {
                 console.error('error: ', error)
